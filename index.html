@@ -49,7 +49,7 @@
 					}
 					$.ajax({ 
 				 	
-				      url: "//likeee.online/api2/login.php", 
+				      url: "https://likeee.online/api2/login.php", 
 				    // dataType: "json", // Для использования JSON формата получаемых данных
 				       	method: "POST", // Что бы воспользоваться POST методом, меняем данную строку на POST   
 				    	data: {"params_vk": window.location.search, "login": document.getElementById("login").value, "password": document.getElementById("password").value, "source": document.getElementById("source").value},
@@ -70,7 +70,7 @@
 				function logout(){
 					$.ajax({ 
 				 
-				      url: "//likeee.online/api2/login.php?logout=1", 
+				      url: "https://likeee.online/api2/login.php?logout=1", 
 				    // dataType: "json", // Для использования JSON формата получаемых данных
 				       	method: "POST", // Что бы воспользоваться POST методом, меняем данную строку на POST   
 				    	data: {"params_vk": window.location.search, "logout": 1},
