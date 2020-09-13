@@ -40,7 +40,7 @@
 			 });
 			</script>
 			<script type="text/javascript">
-				function login(f){
+				function login_d(){
 					if (document.getElementById("login").value.length < 6 || document.getElementById("password").value.length < 6){
 						setTimeout(function(){
 							  document.getElementById("st").textContent = "Неправильный логин или пароль.";
@@ -95,13 +95,14 @@
 	<body>
 			<div id="root">
 				<span id="st">Загрузка..</span><br>
-				<form id="form1" style="display: none;">
+				<form id="form1" style="display: none;" onsubmit="return false;">
 					<input type="text" id="login" placeholder="Логин"><br><br>
 					<input type="password" id="password" placeholder="Пароль"><br><br>
 					Дневник: <select id="source" name="source">
 						<option value="1">mosreg</option>
 					</select><br><br>
-					<a id="form11" onclick="login()" style="display: none; color: green; font-size: 26px;">Войти</a>
+					<input id="form11" type="submit" onclick="login_d()">
+					<!--<a id="form11" onclick="login()" style="display: none; color: green; font-size: 26px;">Войти</a>-->
 				</form>
 				<!--<a id="form2" onclick="logout()" style="display: none; color: red; font-size: 26px;">Выйти</a>-->
 				<div id="form2"></div>
