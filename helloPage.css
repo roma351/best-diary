@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Mono&family=Roboto:wght@100;300;400;500;700;900&display=swap");
+* {
+  margin: 0;
+  padding: 0; }
+
+body, html {
+  height: 100%;
+  width: 100vw;
+  background-color: #191919;
+  color: #fff; }
+
+a {
+  text-decoration: none; }
+
+body {
+  font-family: 'Roboto', sans-serif; }
+
+@media (max-width: 576px) {
+  .container {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+
+  .avatar {
+    margin-top: 30%;
+    height: 150px;
+    width: 150px; }
+    .avatar img {
+      height: 150px;
+      width: 150px;
+      border-radius: 50%;
+      object-fit: cover; }
+
+  .helloName {
+    margin-top: 20px; }
+
+  .mark {
+    margin-top: 20px; }
+
+  .buttons {
+    margin-top: 10%;
+    display: flex;
+    margin-left: 5%;
+    margin-right: 5%;
+    justify-content: space-around;
+    width: 90%; }
+    .buttons button {
+      border: none;
+      outline: none;
+      height: 30px;
+      width: 100px;
+      color: #fff; }
+      .buttons button:first-child {
+        background-color: #f71e1e; }
+      .buttons button:last-child {
+        background-color: #0146fa; } }
+
+/*# sourceMappingURL=helloPage.css.map */
