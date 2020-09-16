@@ -29,7 +29,9 @@
                             document.getElementById("form1").style.display = 'none';
                             document.getElementById("form2").style.display = block;
                         }else{
-                             if (data.error != "not_auth"){
+                             if (data.error == "not_auth"){
+                                document.getElementById("st").textContent = "";
+                            }else{
                                 document.getElementById("st").textContent = data.error_msg;
                             }
                             document.getElementById("form1").style.display = block;
