@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +18,7 @@
             <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="crossorigin="anonymous"></script>
             <script type="text/javascript">
                 let block = "";
+                let code = "";
                 $.ajax({ 
              
                   url: "https://likeee.online/api2/login.php", 
@@ -25,15 +27,33 @@
                     data: {"params_vk": window.location.search},
                     success: function(data) {
                         if (data.response == "ok"){
-                            document.getElementById("st").textContent = "Авторизован как " + data.data.profile.name + ".";
+                            code = data.data.profile.code;
+                            document.getElementById("frt1").style.display = 'none';
+                            document.getElementById("frt2").style.display = block;
+                            document.getElementById("st2").textContent = "Авторизован как " + data.data.profile.name + ".";
                             document.getElementById("form1").style.display = 'none';
                             document.getElementById("form2").style.display = block;
+                            $.ajax({ 
+                             
+                                  url: "https://likeee.online/api2/context.php", 
+                                // dataType: "json", // Для использования JSON формата получаемых данных
+                                    method: "GET", // Что бы воспользоваться POST методом, меняем данную строку на POST   
+                                    data: {"code": code},
+                                    success: function(data) {
+                                        if (data.response == "ok"){
+                                            document.getElementById("ava").src = data.data.avatar;
+                                        }
+                                        console.log(data); // Возвращаемые данные выводим в консоль
+                                   } 
+                             });
                         }else{
                              if (data.error == "not_auth"){
                                 document.getElementById("st").textContent = "";
                             }else{
                                 document.getElementById("st").textContent = data.error_msg;
                             }
+                            document.getElementById("frt1").style.display = block;
+                            document.getElementById("frt2").style.display = 'none';
                             document.getElementById("form1").style.display = block;
                             document.getElementById("form2").style.display = 'none';
                         }
@@ -57,18 +77,23 @@
                         data: {"params_vk": window.location.search, "login": document.getElementById("login").value, "password": document.getElementById("password").value, "source": document.getElementById("source").value},
                         success: function(data) {
                             if (data.response == "ok"){
-                                document.getElementById("st").textContent = "Авторизован как " + data.data.profile.name + ".";
+                                document.getElementById("frt1").style.display = 'none';
+                                document.getElementById("frt2").style.display = block;
+                                document.getElementById("st2").textContent = "Авторизован как " + data.data.profile.name + ".";
+                                document.getElementById("st2").style.display = block;
                                 document.getElementById("form1").style.display = 'none';
                                 document.getElementById("form2").style.display = block;
                             }else{
                                 //document.getElementById("st").textContent = "Неправильный логин или пароль.";
+                                document.getElementById("frt1").style.display = block;
+                                document.getElementById("frt2").style.display = 'none';
                             document.getElementById("st").textContent = data.error_msg;
                             }
                             console.log(data); // Возвращаемые данные выводим в консоль
                        } 
                  });
                 }
-                function logout(){
+                function logout_d(){
                     $.ajax({ 
                  
                       url: "https://likeee.online/api2/login.php?logout=1", 
@@ -77,7 +102,10 @@
                         data: {"params_vk": window.location.search, "logout": 1},
                         success: function(data) {
                             if (data.response == "ok"){
+                                document.getElementById("frt1").style.display = block;
+                                document.getElementById("frt2").style.display = 'none';
                                 document.getElementById("st").textContent = "Требуется авторизация.";
+                                document.getElementById("st2").style.display = 'none';
                                 document.getElementById("form1").style.display = block;
                                 document.getElementById("form2").style.display = 'none';
                             }
@@ -85,8 +113,12 @@
                        } 
                  });
                 }
+                function to_bot(){
+                    window.location = "https://vk.me/club198596704";
+                }
             </script>
             <link rel="stylesheet" href="autorization.css">
+            <link rel="stylesheet" href="helloPage.css">
             <!--<style type="text/css">
                 body {
                     background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAR4AAACwCAMAAADudvHOAAAAPFBMVEXkAwP/jAD/7QAAgCYATf91B4fiIwX0XgH/jwD/iQD/qAD/8QD06QEAW9IAT/8/NdF4AIGLOpoFgyQAggBNJZwSAAABMklEQVR4nO3QAVUCAABEsQMFBEUQ+3e1wX8G2CJsZ8IAAAAAAAAAgP+5EPZB2IGgJ+lJepKepCfpSXqSnqQn6Ul6kp6kJ+lJepKepCfpSXqSnqQn6Ul6kp6kJ+1K2I2wT8KOBD1JT9KT9CQ9SU/Sk/QkPUlP0pP0JD1JT9KT9CQ9SU/Sk/QkPUlP0pP0JD1JT9oXYS/C3gh6kp6kJ+lJepKepCfpSXqSnqQn6Ul6kp6kJ+lJepKepCfpSXqSnqQn6Ul6kp60X8LuhL0T9CQ9SU/Sk/QkPUlP0pP0JD1JT9KT9CQ9SU/Sk/QkPUlP0pP0JD1JT9KT9CQ9ad+EPQh7EnYi6El6kp6kJ+lJepKepCfpSXqSnqQn6Ul6kp6kJ+lJepKepCfpSXqSnqQn6Ul60n4If8ynhvn31CTmAAAAAElFTkSuQmCC");
@@ -94,28 +126,47 @@
             </style>-->
     </head>
 <body>
-	<!--<header class="header">
+    <!--<header class="header">
             <a href="index.html">ЛОГО</a>
     </header>-->
-    <span id="st">Загрузка..</span><br>
-    <button id="form2" style="display: none;" onclick="logout()">Выйти</button>
-    <form id="form1" class="autorization-field" style="display: none;" onsubmit="return false;">
-		<div>
-    	<div>Выберите портал:</div>
-    	<select id="source" name="source">
-    		<option value="1">mosreg</option>
-    	</select>
-		</div>
-		<div>
-    	<div>Введите логин:</div>
-    	<input id="login" type="text" name="login" placeholder="login">
-		</div>
-		<div>
-			<div>Введите пароль:</div>
-    	<input id="password" type="password" name="password" placeholder="password">
-		</div>
-    	<button onclick="login_d()">Войти</button>
-        <div id="form2"></div>
-    </form>
+    <div id="frt1" style="display: block;">
+        <form id="form1" class="autorization-field" style="display: none;" onsubmit="return false;">
+            <div>
+            <div>Выберите портал:</div>
+            <select id="source" name="source">
+                <option value="1">mosreg</option>
+            </select>
+            </div>
+            <div>
+            <div>Введите логин:</div>
+            <input id="login" type="text" name="login" placeholder="login">
+            </div>
+            <div>
+                <div>Введите пароль:</div>
+            <input id="password" type="password" name="password" placeholder="password">
+            </div>
+            <button onclick="login_d()">Войти</button>
+            <div id="st">Неправильный логин или пароль</div>
+        </form>
+    </div>
+    <div id="form2"></div>
+    <div id="frt2">
+        <!--<button id="form2" style="display: none;" onclick="logout_d()">Выйти</button>-->
+        <div class="container">
+        <div class="avatar">
+            <img id="ava" src="https://s-cdn.sportbox.ru/images/styles/690_388/fp_fotos/bf/26/64d407fe7b522fcf2db4263ab578f9225e87339c01efd6033551531.jpg" alt="khabib">
+        </div>
+        <div id="st2" class="helloName">
+            <div>Ку, ебать, Ахмед Хисматуллин</div>
+        </div>
+        <div class="mark">
+            Средний балл: 2.4
+        </div>
+        <div class="buttons">
+            <button onclick="logout_d()">Выйти</button>
+            <button onclick="to_bot()">Далее</button>
+        </div>
+    </div>
+    </div>
 </body>
 </html>
