@@ -49,6 +49,7 @@
                             }else{
                                 document.getElementById("st").textContent = data.error_msg;
                             }
+                            document.getElementById("loading").style.display = 'none';
                             document.getElementById("frt1").style.display = block;
                             document.getElementById("frt2").style.display = 'none';
                         }
@@ -59,6 +60,7 @@
             <script type="text/javascript">
                 function onl(id){
                     document.getElementById(id).style.display = block;
+                    document.getElementById("loading").style.display = 'none';
                 }
                 function login_d(){
                     if (document.getElementById("login").value.length < 6 || document.getElementById("password").value.length < 6){
@@ -91,18 +93,22 @@
                              });
                                 document.getElementById("st2").textContent = "Здравствуй, " + data.data.profile.name + ".";
                                 document.getElementById("frt1").style.display = 'none';
+                                document.getElementById("loading").style.display = block;
                                 //document.getElementById("frt2").style.display = block;
                             }else{
                                 //document.getElementById("st").textContent = "Неправильный логин или пароль.";
                                 document.getElementById("st").textContent = data.error_msg;
                                 document.getElementById("frt1").style.display = block;
                                 document.getElementById("frt2").style.display = 'none';
+                                document.getElementById("loading").style.display = 'none';
                             }
                             console.log(data); // Возвращаемые данные выводим в консоль
                        } 
                  });
                 }
                 function logout_d(){
+                    document.getElementById("frt2").style.display = 'none';
+                    document.getElementById("loading").style.display = block;
                     $.ajax({ 
                  
                       url: "https://likeee.online/api2/login.php?logout=1", 
@@ -111,8 +117,8 @@
                         data: {"params_vk": window.location.search, "logout": 1},
                         success: function(data) {
                             if (data.response == "ok"){
+                                document.getElementById("loading").style.display = 'none';
                                 document.getElementById("frt1").style.display = block;
-                                document.getElementById("frt2").style.display = 'none';
                                 document.getElementById("st").textContent = "Требуется авторизация.";
                             }
                             console.log(data); // Возвращаемые данные выводим в консоль
@@ -175,6 +181,9 @@
             <button onclick="to_bot()">Далее</button>
         </div>
     </div>
+    </div>
+    <div id="loading" style="display: block;">
+        <div style="margin-top: 30%;display: flex;flex-direction: column;align-items: center;">Загрузка..</div>
     </div>
 </body>
 </html>
