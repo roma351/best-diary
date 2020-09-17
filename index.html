@@ -116,8 +116,8 @@
                         method: "POST", // Что бы воспользоваться POST методом, меняем данную строку на POST   
                         data: {"params_vk": window.location.search, "logout": 1},
                         success: function(data) {
+                            document.getElementById("loading").style.display = 'none';
                             if (data.response == "ok"){
-                                document.getElementById("loading").style.display = 'none';
                                 document.getElementById("frt1").style.display = block;
                                 document.getElementById("st").textContent = "Требуется авторизация.";
                             }
