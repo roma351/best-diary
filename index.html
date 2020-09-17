@@ -28,6 +28,8 @@
                     success: function(data) {
                         if (data.response == "ok"){
                             code = data.data.profile.code;
+                            document.getElementById("frt1").style.display = 'none';
+                            document.getElementById("frt2").style.display = 'none';
                             document.getElementById("st2").textContent = "Здравствуй, " + data.data.profile.name + ".";
                             document.getElementById("form1").style.display = 'none';
                             document.getElementById("form2").style.display = block;
