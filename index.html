@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,8 +28,6 @@
                         if (data.response == "ok"){
                             code = data.data.profile.code;
                             document.getElementById("st2").textContent = "Здравствуй, " + data.data.profile.name + ".";
-                            document.getElementById("form1").style.display = 'none';
-                            document.getElementById("form2").style.display = block;
                             $.ajax({ 
                              
                                   url: "https://likeee.online/api2/context.php", 
@@ -45,23 +42,24 @@
                                    } 
                              });
                             document.getElementById("frt1").style.display = 'none';
-                            document.getElementById("frt2").style.display = block;
+                            //document.getElementById("frt2").style.display = block;
                         }else{
-                             if (data.error == "not_auth"){
+                            if (data.error == "not_auth"){
                                 document.getElementById("st").textContent = "";
                             }else{
                                 document.getElementById("st").textContent = data.error_msg;
                             }
                             document.getElementById("frt1").style.display = block;
                             document.getElementById("frt2").style.display = 'none';
-                            document.getElementById("form1").style.display = block;
-                            document.getElementById("form2").style.display = 'none';
                         }
                         console.log(data); // Возвращаемые данные выводим в консоль
                    } 
              });
             </script>
             <script type="text/javascript">
+                function onl(id){
+                    document.getElementById(id).style.display = block;
+                }
                 function login_d(){
                     if (document.getElementById("login").value.length < 6 || document.getElementById("password").value.length < 6){
                         setTimeout(function(){
@@ -91,17 +89,14 @@
                                         console.log(data); // Возвращаемые данные выводим в консоль
                                    } 
                              });
-                                document.getElementById("frt1").style.display = 'none';
-                                document.getElementById("frt2").style.display = block;
                                 document.getElementById("st2").textContent = "Здравствуй, " + data.data.profile.name + ".";
-                                document.getElementById("st2").style.display = block;
-                                document.getElementById("form1").style.display = 'none';
-                                document.getElementById("form2").style.display = block;
+                                document.getElementById("frt1").style.display = 'none';
+                                //document.getElementById("frt2").style.display = block;
                             }else{
                                 //document.getElementById("st").textContent = "Неправильный логин или пароль.";
+                                document.getElementById("st").textContent = data.error_msg;
                                 document.getElementById("frt1").style.display = block;
                                 document.getElementById("frt2").style.display = 'none';
-                            document.getElementById("st").textContent = data.error_msg;
                             }
                             console.log(data); // Возвращаемые данные выводим в консоль
                        } 
@@ -119,9 +114,6 @@
                                 document.getElementById("frt1").style.display = block;
                                 document.getElementById("frt2").style.display = 'none';
                                 document.getElementById("st").textContent = "Требуется авторизация.";
-                                document.getElementById("st2").style.display = 'none';
-                                document.getElementById("form1").style.display = block;
-                                document.getElementById("form2").style.display = 'none';
                             }
                             console.log(data); // Возвращаемые данные выводим в консоль
                        } 
@@ -129,6 +121,9 @@
                 }
                 function to_bot(){
                     window.location = "https://vk.me/club198596704";
+                }
+                function context(){
+
                 }
             </script>
             <link rel="stylesheet" href="autorization.css">
@@ -143,8 +138,8 @@
     <!--<header class="header">
             <a href="index.html">ЛОГО</a>
     </header>-->
-    <div id="frt1" style="display: block;">
-        <form id="form1" class="autorization-field" style="display: none;" onsubmit="return false;">
+    <div id="frt1" style="display: none;">
+        <form id="form1" class="autorization-field" onsubmit="return false;">
             <div>
             <div>Выберите портал:</div>
             <select id="source" name="source">
@@ -160,15 +155,14 @@
             <input id="password" type="password" name="password" placeholder="password">
             </div>
             <button onclick="login_d()">Войти</button>
-            <div id="st">Неправильный логин или пароль</div>
+            <div id="st"></div>
         </form>
     </div>
-    <div id="form2"></div>
-    <div id="frt2">
+    <div id="frt2" style="display: none;">
         <!--<button id="form2" style="display: none;" onclick="logout_d()">Выйти</button>-->
         <div class="container">
         <div class="avatar">
-            <img id="ava" src="https://s-cdn.sportbox.ru/images/styles/690_388/fp_fotos/bf/26/64d407fe7b522fcf2db4263ab578f9225e87339c01efd603355153.jpg" alt="khabib">
+            <img id="ava" onload="onl('frt2')" src="" alt="khabib">
         </div>
         <div id="st2" class="helloName">
             <div>Загрузка..</div>
