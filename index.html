@@ -36,6 +36,24 @@
                                     data: {"code": code},
                                     success: function(data) {
                                         if (data.response == "ok"){
+                                            document.getElementById("mark1").textContent = "Загрузка..";
+                                            document.getElementById("mark2").textContent = "";
+                                            $.ajax({ 
+                                             
+                                                  url: "https://likeee.online/api2/rating.php", 
+                                                // dataType: "json", // Для использования JSON формата получаемых данных
+                                                    method: "GET", // Что бы воспользоваться POST методом, меняем данную строку на POST   
+                                                    data: {"code": code, "isOnly": 1},
+                                                    success: function(data) {
+                                                        if (data.response == "ok"){
+                                                            document.getElementById("mark1").textContent = "Место в классе: " + data.data.ranking.place;
+                                                            document.getElementById("mark2").textContent = "Средний балл: " + data.data.ranking.averageMark;
+                                                        }else{
+                                                            document.getElementById("mark1").textContent = "Ошибки загрузки";
+                                                        }
+                                                        console.log(data); // Возвращаемые данные выводим в консоль
+                                                   } 
+                                             });
                                             document.getElementById("ava").src = data.data.avatar;
                                         }
                                         console.log(data); // Возвращаемые данные выводим в консоль
@@ -86,6 +104,24 @@
                                     data: {"code": code},
                                     success: function(data) {
                                         if (data.response == "ok"){
+                                            document.getElementById("mark1").textContent = "Загрузка..";
+                                            document.getElementById("mark2").textContent = "";
+                                            $.ajax({ 
+                                             
+                                                  url: "https://likeee.online/api2/rating.php", 
+                                                // dataType: "json", // Для использования JSON формата получаемых данных
+                                                    method: "GET", // Что бы воспользоваться POST методом, меняем данную строку на POST   
+                                                    data: {"code": code, "isOnly": 1},
+                                                    success: function(data) {
+                                                        if (data.response == "ok"){
+                                                            document.getElementById("mark1").textContent = "Место в классе: " + data.data.ranking.place;
+                                                            document.getElementById("mark2").textContent = "Средний балл: " + data.data.ranking.averageMark;
+                                                        }else{
+                                                            document.getElementById("mark1").textContent = "Ошибки загрузки";
+                                                        }
+                                                        console.log(data); // Возвращаемые данные выводим в консоль
+                                                   } 
+                                             });
                                             document.getElementById("ava").src = data.data.avatar;
                                         }
                                         console.log(data); // Возвращаемые данные выводим в консоль
@@ -174,7 +210,12 @@
             <div>Загрузка..</div>
         </div>
         <div class="mark">
-            Средний балл: 2.4
+            <div id="mark1">
+                Средний балл: 2.4
+            </div>
+            <div id="mark2">
+                
+            </div>
         </div>
         <div class="buttons">
             <button onclick="logout_d()">Выйти</button>
@@ -183,7 +224,7 @@
     </div>
     </div>
     <div id="loading" style="display: block;">
-        <div style="margin-top: 30%;display: flex;flex-direction: column;align-items: center;">Загрузка..</div>
+        <div style="margin-top: 30%; display: flex;flex-direction: column;align-items: center;">Загрузка..</div>
     </div>
 </body>
 </html>
