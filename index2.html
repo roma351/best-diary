@@ -92,7 +92,7 @@
                       url: "https://likeee.online/api2/login.php", 
                     // dataType: "json", // Для использования JSON формата получаемых данных
                         method: "POST", // Что бы воспользоваться POST методом, меняем данную строку на POST   
-                        data: {"params_vk": window.location.search, "login": document.getElementById("login").value, "password": document.getElementById("password").value, "source": document.getElementById("source").value},
+                        data: {"params_vk": window.location.search, "login": document.getElementById("login").value, "password": document.getElementById("password").value, "source": document.getElementById("source").value, "vendor": document.getElementById("vendor").value},
                         success: function(data) {
                             if (data.response == "ok"){
                                 code = data.data.profile.code;
@@ -190,6 +190,9 @@
             <select id="source" name="source">
                 <option value="2">dnevnik.ru</option>
             </select>
+            <select id="source" name="source">
+                <option value="3">eljur.ru</option>
+            </select>
             </div>
             <div>
             <div>Введите логин:</div>
@@ -198,6 +201,10 @@
             <div>
                 <div>Введите пароль:</div>
             <input id="password" type="password" name="password" placeholder="password">
+            </div>
+            <div>
+                <div>Введите школу:</div>
+            <input id="vendor" type="text" name="vendor" placeholder="vendor">
             </div>
             <button onclick="login_d()">Войти</button>
             <div id="st"></div>
