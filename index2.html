@@ -43,7 +43,7 @@
                                                   url: "https://likeee.online/api2/rating.php", 
                                                 // dataType: "json", // Для использования JSON формата получаемых данных
                                                     method: "GET", // Что бы воспользоваться POST методом, меняем данную строку на POST   
-                                                    data: {"code": code, "isOnly": 1},
+                                                    data: {"code": code, "type": "isOnly"},
                                                     success: function(data) {
                                                         if (data.response == "ok"){
                                                             document.getElementById("mark1").textContent = "Место в классе: " + data.data.ranking.place + " из " + data.data.last_place;
@@ -111,7 +111,7 @@
                                                   url: "https://likeee.online/api2/rating.php", 
                                                 // dataType: "json", // Для использования JSON формата получаемых данных
                                                     method: "GET", // Что бы воспользоваться POST методом, меняем данную строку на POST   
-                                                    data: {"code": code, "isOnly": 1},
+                                                    data: {"code": code, "type": "isOnly"},
                                                     success: function(data) {
                                                         if (data.response == "ok"){
                                                             document.getElementById("mark1").textContent = "Место в классе: " + data.data.ranking.place + " из " + data.data.last_place;
