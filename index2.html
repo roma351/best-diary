@@ -46,9 +46,9 @@
                                                   url: "https://likeee.online/api2/rating.php", 
                                                 // dataType: "json", // Для использования JSON формата получаемых данных
                                                     method: "GET", // Что бы воспользоваться POST методом, меняем данную строку на POST
-                                                    headers: new Headers({
-                                                            'Content-Type': 'application/x-www-form-urlencoded',
-                                                            }),
+                                                    headers: {
+                                                'Content-Type': 'application/x-www-form-urlencoded'
+                                                },
                                                     data: {"code": code, "type": "isOnly"},
                                                     success: function(data) {
                                                         if (data.response == "ok"){
@@ -108,9 +108,9 @@
                                 // dataType: "json", // Для использования JSON формата получаемых данных
                                     method: "GET", // Что бы воспользоваться POST методом, меняем данную строку на POST   
                                     data: {"code": code},
-                                    headers: new Headers({
-                                                            'Content-Type': 'application/x-www-form-urlencoded',
-                                                            }),
+                                    headers: {
+                                                'Content-Type': 'application/x-www-form-urlencoded'
+                                                },
                                     success: function(data) {
                                         if (data.response == "ok"){
                                             document.getElementById("mark1").textContent = "Загрузка..";
@@ -121,9 +121,9 @@
                                                 // dataType: "json", // Для использования JSON формата получаемых данных
                                                     method: "GET", // Что бы воспользоваться POST методом, меняем данную строку на POST   
                                                     data: {"code": code, "type": "isOnly"},
-                                                        headers: new Headers({
-                                                            'Content-Type': 'application/x-www-form-urlencoded',
-                                                            }),
+                                                        headers: {
+                                                'Content-Type': 'application/x-www-form-urlencoded'
+                                                },
                                                     success: function(data) {
                                                         if (data.response == "ok"){
                                                             document.getElementById("mark1").textContent = "Место в классе: " + data.data.ranking.place + " из " + data.data.last_place;
