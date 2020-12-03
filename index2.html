@@ -33,9 +33,9 @@
                                   url: "https://likeee.online/api2/context.php", 
                                 // dataType: "json", // Для использования JSON формата получаемых данных
                                     method: "GET", // Что бы воспользоваться POST методом, меняем данную строку на POST
-                                    headers: new Headers({
-                                                'Content-Type': 'application/x-www-form-urlencoded',
-                                                }),
+                                    headers: {
+                                                'Content-Type': 'application/x-www-form-urlencoded'
+                                                },
                                     data: {"code": code},
                                     success: function(data) {
                                         if (data.response == "ok"){
