@@ -87,7 +87,7 @@
                     document.getElementById("loading").style.display = 'none';
                 }
                 function login_d(){
-                    if (document.getElementById("login").value.length < 6 || document.getElementById("password").value.length < 6){
+                    if (document.getElementById("login").value.length < 4 || document.getElementById("password").value.length < 4){
                         setTimeout(function(){
                               document.getElementById("st").textContent = "Неправильный логин или пароль.";
                             }, 500);
@@ -159,10 +159,10 @@
                     document.getElementById("loading").style.display = block;
                     $.ajax({ 
                  
-                      url: "https://likeee.online/api2/login.php?logout=1", 
+                      url: "https://likeee.online/api2/login.php?code=" + code, 
                     // dataType: "json", // Для использования JSON формата получаемых данных
                         method: "POST", // Что бы воспользоваться POST методом, меняем данную строку на POST   
-                        data: {"params_vk": window.location.search, "logout": 1},
+                        data: {"logout": 1},
                         success: function(data) {
                             document.getElementById("loading").style.display = 'none';
                             if (data.response == "ok"){
@@ -205,6 +205,9 @@
                 <option value="6">edu.gounn.ru</option>
                 <option value="7">edu.tatar.ru</option>
                 <option value="8">kundelik.kz</option>
+                <option value="9">Сетевой Город</option>
+                <option value="10">Барс</option>
+                <option value="11">ЭПОС</option>
             </select>
             </div>
             <div>
