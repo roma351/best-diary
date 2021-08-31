@@ -208,7 +208,7 @@
                         value: u.name,
                         onChange: function(e) {
                             var t;
-                            t = e.target.value, fetch("https://api.school-diary.ru/method/login/vendor?source=" + document.getElementById("source_sh").value + "&q=" + encodeURIComponent(t)).then((function(e) {
+                            t = e.target.value, fetch("http://diary.loc/method/login/vendor?source=" + document.getElementById("source_sh").value + "&q=" + encodeURIComponent(t)).then((function(e) {
                                 return e.json()
                             })).then((function(e) {
                                 G(function(e, t) {
@@ -569,7 +569,7 @@
                         })),
                         function() {
                             e.apply(this, arguments)
-                        }(), fetch("https://api.school-diary.ru/method/login/vkontakte", {
+                        }(), fetch("http://diary.loc/method/login/vkontakte", {
                             method: "POST",
                             headers: new Headers({
                             	"Accept": "application/json",
@@ -588,7 +588,7 @@
                                 }()), U(""), W(""), G(""), H(""), U(e.response.user.token);
                                 var a = e.response.user.token,
                                     o = window.location.hash.substring(1).split("_");
-                                r("auth"), fetch("https://api.school-diary.ru/method/context", {
+                                r("auth"), fetch("http://diary.loc/method/context", {
                             method: "POST",
                             headers: new Headers({
                             	"Accept": "application/json",
@@ -600,7 +600,7 @@
                                     return e.json()
                                 })).then((function(e) {
                                 	//// send to estimates
-                                    _(!0), true == e.success && (W(e.response.name), G(e.response.photo), H(e.response.rating), console.log("1234"), fetch("https://api.school-diary.ru/method/estimates", {
+                                    _(!0), true == e.success && (W(e.response.name), G(e.response.photo), H(e.response.rating), console.log("1234"), fetch("http://diary.loc/method/estimates", {
                             method: "POST",
                             headers: new Headers({
                             	"Accept": "application/json",
@@ -702,7 +702,7 @@
                         if (c == '') {
                         	c = '_';
                         }
-                        fetch("https://api.school-diary.ru/method/login", {
+                        fetch("http://diary.loc/method/login", {
                             method: "POST",
                             headers: new Headers({
                             	"Accept": "application/json",
@@ -720,7 +720,7 @@
                                     re(e)
                                 }))), Y(""), U(""), W(""), G(""), H(""), U(e.response.user.token);
                                 var n = e.response.user.token;
-                                r("auth"), fetch("https://api.school-diary.ru/method/context", {
+                                r("auth"), fetch("http://diary.loc/method/context", {
                             method: "POST",
                             headers: new Headers({
                             	"Accept": "application/json",
@@ -731,7 +731,7 @@
                         }).then((function(e) {
                                     return e.json()
                                 })).then((function(e) {
-                                    _(!0), true == e.success && (W(e.response.name), G(e.response.photo), H(e.response.rating), console.log("12345"), fetch("https://api.school-diary.ru/method/estimates", {
+                                    _(!0), true == e.success && (W(e.response.name), G(e.response.photo), H(e.response.rating), console.log("12345"), fetch("http://diary.loc/method/estimates", {
                             method: "POST",
                             headers: new Headers({
                                 "Accept": "application/json",
@@ -765,7 +765,7 @@
                     bridge: s.a,
                     go: he,
                     goes: function(e) {
-                        fetch("https://api.school-diary.ru/method/logout", {
+                        fetch("http://diary.loc/method/logout", {
                             method: "POST",
                             headers: new Headers({
                             	"Accept": "application/json",
