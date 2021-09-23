@@ -208,9 +208,9 @@
                         value: "11"
                     }, "school.permkrai.ru"),o.a.createElement("option", {
                         value: "12"
-                    }, "school.nso.ru"),o.a.createElement("option", {
+                    }, "ruobr.ru"),o.a.createElement("option", {
                         value: "14"
-                    }, "ruobr.ru"))), R && o.a.createElement(o.a.Fragment, null, o.a.createElement(C.g, {
+                    }, "school.nso.ru"))), R && o.a.createElement(o.a.Fragment, null, o.a.createElement(C.g, {
                         top: "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u043d\u043e\u043c\u0435\u0440 \u0448\u043a\u043e\u043b\u044b:"
                     }, o.a.createElement(C.k, {
                         className: "input",
