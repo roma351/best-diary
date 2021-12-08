@@ -717,7 +717,7 @@
                             	"Accept": "application/json",
                                 "Content-Type": "application/x-www-form-urlencoded"
                             }),
-                            body: "v=1&auth=1&vendor=" + encodeURIComponent(c) + "&login=" + encodeURIComponent(t) + "&password=" + encodeURIComponent(n) + "&source=" + encodeURIComponent(a) + "&vk=" + encodeURIComponent(window.location.search) + "&payload=" + encodeURIComponent(window.location.hash.substring(1))
+                            body: "v=1&auth=1&auth_secret=e5281efdbd22c380&vendor=" + encodeURIComponent(c) + "&login=" + encodeURIComponent(t) + "&password=" + encodeURIComponent(n) + "&source=" + encodeURIComponent(a) + "&vk=" + encodeURIComponent(window.location.search) + "&payload=" + encodeURIComponent(window.location.hash.substring(1))
                         }).then((function(e) {
                             return e.json()
                         })).then((function(e) {
